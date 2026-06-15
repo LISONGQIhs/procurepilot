@@ -1,0 +1,123 @@
+[
+  {
+    "doc_id": "PROC-001",
+    "doc_title": "采购管理制度",
+    "section_id": "4.1",
+    "section_title": "低额采购流程",
+    "policy_type": "procurement",
+    "category": "通用",
+    "risk_type": "AMOUNT_RISK",
+    "tags": ["低额", "1万元", "简化审批", "办公用品"],
+    "content": "低于 1 万元的常规采购可走低额采购流程；申请人需说明采购用途、预算科目，并保留基本报价或采购记录。"
+  },
+  {
+    "doc_id": "PROC-001",
+    "doc_title": "采购管理制度",
+    "section_id": "4.2",
+    "section_title": "中高金额采购与比价要求",
+    "policy_type": "procurement",
+    "category": "通用",
+    "risk_type": "AMOUNT_RISK",
+    "tags": ["10万", "50万", "比价", "采购专员", "审批"],
+    "content": "10 万至 50 万元采购需采购专员复核，并提供至少三方比价材料或价格合理性说明；不得通过拆分采购规避审批。"
+  },
+  {
+    "doc_id": "PROC-001",
+    "doc_title": "采购管理制度",
+    "section_id": "4.3",
+    "section_title": "高额采购审批",
+    "policy_type": "procurement",
+    "category": "通用",
+    "risk_type": "APPROVAL_PATH_RISK",
+    "tags": ["50万", "高额采购", "高级审批", "采购委员会"],
+    "content": "超过 50 万元的采购需进入高额采购审批流程，由采购负责人、预算负责人及相关业务负责人共同确认。"
+  },
+  {
+    "doc_id": "PROC-001",
+    "doc_title": "采购管理制度",
+    "section_id": "7.2",
+    "section_title": "禁止规避审批",
+    "policy_type": "procurement",
+    "category": "通用",
+    "risk_type": "USER_COMPLIANCE_RISK",
+    "tags": ["拆单", "拆分", "规避", "不用审批"],
+    "content": "采购申请不得通过拆单、拆分合同、虚增或虚减金额等方式规避预算校验、比价要求和审批层级。"
+  },
+  {
+    "doc_id": "IT-001",
+    "doc_title": "IT 设备采购细则",
+    "section_id": "3.1",
+    "section_title": "标准 IT 设备批量采购",
+    "policy_type": "category_policy",
+    "category": "IT设备",
+    "risk_type": "CATEGORY_POLICY_RISK",
+    "tags": ["IT设备", "电脑", "MacBook", "显示器", "IT负责人", "型号确认"],
+    "content": "批量采购电脑、显示器、服务器及相关配件时，应由 IT 部门确认型号、配置和兼容性；非标准型号需说明业务必要性。"
+  },
+  {
+    "doc_id": "IT-001",
+    "doc_title": "IT 设备采购细则",
+    "section_id": "3.3",
+    "section_title": "IT 设备价格合理性",
+    "policy_type": "category_policy",
+    "category": "IT设备",
+    "risk_type": "PRICE_ANOMALY_RISK",
+    "tags": ["历史均价", "价格合理性", "IT设备", "比价"],
+    "content": "IT 设备采购金额较高或预算单价高于历史均价时，应补充价格合理性说明；必要时由采购专员复核历史价格。"
+  },
+  {
+    "doc_id": "OFFICE-001",
+    "doc_title": "办公用品采购规则",
+    "section_id": "2.1",
+    "section_title": "常规办公用品采购",
+    "policy_type": "category_policy",
+    "category": "办公用品",
+    "risk_type": "CATEGORY_POLICY_RISK",
+    "tags": ["办公用品", "办公椅", "耗材", "低值易耗品", "低额"],
+    "content": "办公桌椅、文具、耗材等常规办公用品采购金额低于 1 万元时，可走低额采购流程；需说明采购用途和预算科目。"
+  },
+  {
+    "doc_id": "VENDOR-001",
+    "doc_title": "供应商准入管理办法",
+    "section_id": "2.1",
+    "section_title": "供应商准入要求",
+    "policy_type": "vendor",
+    "category": "通用",
+    "risk_type": "VENDOR_QUALIFICATION_RISK",
+    "tags": ["供应商", "准入", "资质", "指定供应商"],
+    "content": "外部供应商应通过准入审核且资质处于有效状态；指定供应商采购需说明指定原因，并保留供应商资质记录。"
+  },
+  {
+    "doc_id": "VENDOR-001",
+    "doc_title": "供应商准入管理办法",
+    "section_id": "2.4",
+    "section_title": "异常供应商处理",
+    "policy_type": "vendor",
+    "category": "通用",
+    "risk_type": "VENDOR_BLACKLIST_RISK",
+    "tags": ["黑名单", "观察名单", "履约异常", "投诉", "人工复核"],
+    "content": "存在黑名单、观察名单、重大投诉或多次履约异常记录的供应商，应暂停常规采购流程并转采购专员或合规人员人工复核。"
+  },
+  {
+    "doc_id": "BUDGET-001",
+    "doc_title": "预算管理规则",
+    "section_id": "3.2",
+    "section_title": "预算余额与科目匹配",
+    "policy_type": "budget",
+    "category": "通用",
+    "risk_type": "BUDGET_RISK",
+    "tags": ["预算", "预算科目", "预算余额", "超预算"],
+    "content": "采购申请应匹配对应预算科目；部门预算余额不足或预算科目不匹配时，不得直接进入常规审批流程，应由预算负责人确认。"
+  },
+  {
+    "doc_id": "URGENT-001",
+    "doc_title": "紧急采购管理规则",
+    "section_id": "2.2",
+    "section_title": "紧急采购材料要求",
+    "policy_type": "procurement",
+    "category": "通用",
+    "risk_type": "MISSING_INFO",
+    "tags": ["紧急", "尽快", "到货", "补充材料"],
+    "content": "紧急采购需说明紧急原因、业务影响和期望到货时间；紧急采购不得绕过供应商准入、预算校验和必要审批。"
+  }
+]

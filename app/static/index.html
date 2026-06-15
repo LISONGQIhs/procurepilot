@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProcurePilot</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>ProcurePilot</h1>
+            <p>企业采购合规预审工作台</p>
+          </div>
+          <div class="status-pill" id="runStatus">未运行</div>
+        </header>
+
+        <section class="input-band">
+          <div class="demo-row" id="demoRow"></div>
+          <textarea id="messageInput" rows="4" placeholder="输入采购需求，例如：市场部要采购 30 台 MacBook，预算 45 万，用于下季度活动运营，指定示例供应商A供货。"></textarea>
+          <div class="action-row">
+            <button id="submitBtn" class="primary">开始预审</button>
+            <button id="continueBtn" class="secondary" disabled>补充并继续</button>
+          </div>
+        </section>
+
+        <section class="status-grid" id="statusMetrics">
+          <div class="metric">
+            <span>预审状态</span>
+            <strong id="metricState">未运行</strong>
+          </div>
+          <div class="metric">
+            <span>综合风险</span>
+            <strong id="metricRisk">-</strong>
+          </div>
+          <div class="metric">
+            <span>人工确认</span>
+            <strong id="metricHuman">-</strong>
+          </div>
+          <div class="metric">
+            <span>运行编号</span>
+            <strong id="metricRun">-</strong>
+          </div>
+        </section>
+
+        <section class="workbench-grid">
+          <article class="panel recommendation-panel">
+            <h2>审批建议</h2>
+            <div id="recommendation" class="empty">提交采购需求后生成预审建议</div>
+          </article>
+
+          <article class="panel actions-panel">
+            <h2>下一步动作</h2>
+            <div id="nextActions" class="empty">暂无动作</div>
+          </article>
+
+          <article class="panel">
+            <h2>采购摘要</h2>
+            <dl id="purchaseSummary" class="kv"></dl>
+          </article>
+
+          <article class="panel">
+            <h2>主要风险项</h2>
+            <div id="risks" class="stack"></div>
+          </article>
+
+          <article class="panel">
+            <h2>制度依据</h2>
+            <div id="citations" class="stack"></div>
+          </article>
+
+          <article class="panel">
+            <h2>关键工具结果</h2>
+            <div id="keyToolResults" class="stack"></div>
+          </article>
+        </section>
+
+        <section class="human-panel" id="humanPanel" hidden>
+          <h2>人工确认</h2>
+          <div id="humanReason"></div>
+          <div class="review-row">
+            <select id="reviewDecision">
+              <option value="APPROVE">允许继续</option>
+              <option value="REQUEST_MORE_INFO">要求补充材料</option>
+              <option value="REJECT">驳回</option>
+              <option value="TRANSFER">转交</option>
+            </select>
+            <input id="reviewRole" value="采购专员" />
+            <input id="reviewComment" placeholder="备注" />
+            <button id="reviewBtn" class="primary">提交确认</button>
+          </div>
+        </section>
+
+        <details class="audit-panel" id="auditDetails">
+          <summary>执行详情 / 审计记录</summary>
+          <div class="audit-grid">
+            <article class="panel">
+              <h2>Trace 时间线</h2>
+              <ol id="trace" class="trace-list"></ol>
+            </article>
+
+            <article class="panel">
+              <h2>工具调用详情</h2>
+              <div id="toolCalls" class="stack"></div>
+            </article>
+
+            <article class="panel">
+              <h2>RAG 检索候选</h2>
+              <div id="ragCandidates" class="stack"></div>
+            </article>
+
+            <article class="panel">
+              <h2>风险证据详情</h2>
+              <div id="riskEvidence" class="stack"></div>
+            </article>
+          </div>
+        </details>
+      </section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,909 @@
+[
+  {
+    "id": "eval-001",
+    "input": "行政部想采购 20 把办公椅，预算 8000 元，用于新员工工位补充。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "item_name": "办公椅",
+      "quantity": 20,
+      "amount": 8000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup"
+    ],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_RECOMMENDED"
+  },
+  {
+    "id": "eval-002",
+    "input": "行政部采购 5 把办公椅，预算 2000 元，用于访客接待区补充。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 5,
+      "amount": 2000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则"
+    ],
+    "expected_tools": [
+      "budget_lookup"
+    ],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_RECOMMENDED"
+  },
+  {
+    "id": "eval-003",
+    "input": "行政部想采购 30 把办公椅，预算 15000 元，用于会议室更新。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 30,
+      "amount": 15000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-004",
+    "input": "市场部要采购 30 台 MacBook，预算 45 万，用于下季度活动运营，指定示例供应商A供货。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "item_name": "MacBook",
+      "quantity": 30,
+      "amount": 450000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-005",
+    "input": "市场部采购 20 台 MacBook，预算 30 万，用于活动运营。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "item_name": "MacBook",
+      "quantity": 20,
+      "amount": 300000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "vendor_selection"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-006",
+    "input": "市场部采购 10 台 MacBook，预算 13 万，用于活动运营，供应商是示例供应商A。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "quantity": 10,
+      "amount": 130000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-007",
+    "input": "IT部想采购 5 台显示器，预算 7000 元，用于故障替换。",
+    "expected_fields": {
+      "department": "IT部",
+      "purchase_category": "IT设备",
+      "item_name": "显示器",
+      "quantity": 5,
+      "amount": 7000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup"
+    ],
+    "expected_risks": [
+      "PRICE_ANOMALY_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-008",
+    "input": "IT部采购 20 台显示器，预算 30000 元，用于研发测试环境。",
+    "expected_fields": {
+      "department": "IT部",
+      "purchase_category": "IT设备",
+      "quantity": 20,
+      "amount": 30000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "PRICE_ANOMALY_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-009",
+    "input": "IT部采购 80 台显示器，预算 12 万，用于新办公区工位配置。",
+    "expected_fields": {
+      "department": "IT部",
+      "purchase_category": "IT设备",
+      "quantity": 80,
+      "amount": 120000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "vendor_selection"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-010",
+    "input": "运营部想采购一批直播设备，金额 12 万，供应商是示例供应商B。",
+    "expected_fields": {
+      "department": "运营部",
+      "purchase_category": "直播设备",
+      "amount": 120000,
+      "vendor_name": "示例供应商B"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "MISSING_INFO",
+      "VENDOR_BLACKLIST_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "quantity",
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-011",
+    "input": "运营部采购 8 套直播设备，预算 6 万，用于直播间升级，供应商是示例供应商B。",
+    "expected_fields": {
+      "department": "运营部",
+      "purchase_category": "直播设备",
+      "quantity": 8,
+      "amount": 60000,
+      "vendor_name": "示例供应商B"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "供应商准入管理办法",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "VENDOR_BLACKLIST_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-012",
+    "input": "运营部采购 8 套直播设备，预算 6 万，用于直播间升级。",
+    "expected_fields": {
+      "department": "运营部",
+      "purchase_category": "直播设备",
+      "quantity": 8,
+      "amount": 60000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-013",
+    "input": "行政部采购 10 把办公椅，预算 4000 元，用于工位补充，供应商是示例供应商C。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 10,
+      "amount": 4000,
+      "vendor_name": "示例供应商C"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup"
+    ],
+    "expected_risks": [
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-014",
+    "input": "行政部采购 10 把办公椅，预算 4000 元，用于工位补充，供应商是未准入供应商A。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 10,
+      "amount": 4000,
+      "vendor_name": "未准入供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "APPROVAL_PATH_RISK",
+      "VENDOR_BLACKLIST_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-015",
+    "input": "财务部想采购 20 把办公椅，预算 20000 元，用于档案室工位补充。",
+    "expected_fields": {
+      "department": "财务部",
+      "purchase_category": "办公用品",
+      "quantity": 20,
+      "amount": 20000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "BUDGET_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-016",
+    "input": "我们部门想买一批显示器，尽快到货。",
+    "expected_fields": {
+      "purchase_category": "IT设备",
+      "item_name": "显示器"
+    },
+    "expected_policy_docs": [],
+    "expected_tools": [],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "NEED_INFO",
+    "expected_missing_questions": [
+      "department",
+      "quantity",
+      "amount",
+      "purpose",
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "NEED_MORE_INFO"
+  },
+  {
+    "id": "eval-017",
+    "input": "想采购 10 台显示器，预算 15000 元，用于研发测试。",
+    "expected_fields": {
+      "purchase_category": "IT设备",
+      "item_name": "显示器",
+      "quantity": 10,
+      "amount": 15000
+    },
+    "expected_policy_docs": [],
+    "expected_tools": [],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "NEED_INFO",
+    "expected_missing_questions": [
+      "department",
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "NEED_MORE_INFO"
+  },
+  {
+    "id": "eval-018",
+    "input": "行政部想采购 10 把办公椅，用于工位补充。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 10
+    },
+    "expected_policy_docs": [],
+    "expected_tools": [],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "NEED_INFO",
+    "expected_missing_questions": [
+      "amount",
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "NEED_MORE_INFO"
+  },
+  {
+    "id": "eval-019",
+    "input": "行政部采购 20 把办公椅，预算 8000 元。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 20,
+      "amount": 8000
+    },
+    "expected_policy_docs": [],
+    "expected_tools": [],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "NEED_INFO",
+    "expected_missing_questions": [
+      "purpose",
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "NEED_MORE_INFO"
+  },
+  {
+    "id": "eval-020",
+    "input": "我们部门想采购 30 台 MacBook，预算 45 万，用于活动运营，指定示例供应商A供货。",
+    "expected_fields": {
+      "purchase_category": "IT设备",
+      "item_name": "MacBook",
+      "quantity": 30,
+      "amount": 450000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [],
+    "expected_tools": [],
+    "expected_risks": [],
+    "expected_human_review": false,
+    "expected_state": "NEED_INFO",
+    "expected_missing_questions": [
+      "department",
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "NEED_MORE_INFO"
+  },
+  {
+    "id": "eval-021",
+    "input": "IT部想采购 5 台显示器，预算 8000 元，用于故障替换，尽快到货。",
+    "expected_fields": {
+      "department": "IT部",
+      "purchase_category": "IT设备",
+      "quantity": 5,
+      "amount": 8000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "紧急采购管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "APPROVAL_PATH_RISK",
+      "PRICE_ANOMALY_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-022",
+    "input": "这批设备总价 20 万，能不能帮我拆成几笔 5 万以下，这样不用走高额审批？",
+    "expected_fields": {
+      "amount": 200000
+    },
+    "expected_policy_docs": [
+      "采购管理制度"
+    ],
+    "expected_tools": [
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "USER_COMPLIANCE_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [],
+    "expected_recommendation_type": "REJECT_RECOMMENDED"
+  },
+  {
+    "id": "eval-023",
+    "input": "市场部采购设备总价 20 万，能不能不用走高额审批？",
+    "expected_fields": {
+      "department": "市场部",
+      "amount": 200000
+    },
+    "expected_policy_docs": [
+      "采购管理制度"
+    ],
+    "expected_tools": [
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "USER_COMPLIANCE_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [],
+    "expected_recommendation_type": "REJECT_RECOMMENDED"
+  },
+  {
+    "id": "eval-024",
+    "input": "市场部采购 10 台 MacBook，预算 15 万，用于活动运营，供应商是未准入供应商A。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "quantity": 10,
+      "amount": 150000,
+      "vendor_name": "未准入供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK",
+      "VENDOR_BLACKLIST_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-025",
+    "input": "市场部采购 10 台 MacBook，预算 20 万，用于活动运营，指定示例供应商A供货。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "quantity": 10,
+      "amount": 200000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-026",
+    "input": "市场部采购 10 台 MacBook，预算 13 万，用于活动运营。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "quantity": 10,
+      "amount": 130000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "vendor_selection"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-027",
+    "input": "行政部采购 8 把办公椅，预算 3500 元，用于实习生工位补充，供应商是示例供应商C。",
+    "expected_fields": {
+      "department": "行政部",
+      "purchase_category": "办公用品",
+      "quantity": 8,
+      "amount": 3500,
+      "vendor_name": "示例供应商C"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "办公用品采购规则",
+      "供应商准入管理办法"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup"
+    ],
+    "expected_risks": [
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-028",
+    "input": "运营部采购 12 套直播设备，预算 9 万，用于直播间升级。",
+    "expected_fields": {
+      "department": "运营部",
+      "purchase_category": "直播设备",
+      "quantity": 12,
+      "amount": 90000
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "historical_price_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK"
+    ],
+    "expected_human_review": false,
+    "expected_state": "COMPLETED",
+    "expected_missing_questions": [
+      "budget_category_confirmed"
+    ],
+    "expected_recommendation_type": "SUBMIT_AFTER_SUPPLEMENT"
+  },
+  {
+    "id": "eval-029",
+    "input": "IT部采购 100 台显示器，预算 18 万，用于新办公区配置，供应商是示例供应商A。",
+    "expected_fields": {
+      "department": "IT部",
+      "purchase_category": "IT设备",
+      "quantity": 100,
+      "amount": 180000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法",
+      "预算管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  },
+  {
+    "id": "eval-030",
+    "input": "市场部要采购 30 台 MacBook，预算 45 万，用于下季度活动运营，想找示例供应商A供货，两周内要到。",
+    "expected_fields": {
+      "department": "市场部",
+      "purchase_category": "IT设备",
+      "item_name": "MacBook",
+      "quantity": 30,
+      "amount": 450000,
+      "vendor_name": "示例供应商A"
+    },
+    "expected_policy_docs": [
+      "采购管理制度",
+      "IT 设备采购细则",
+      "供应商准入管理办法",
+      "紧急采购管理规则"
+    ],
+    "expected_tools": [
+      "budget_lookup",
+      "vendor_qualification_lookup",
+      "vendor_risk_lookup",
+      "historical_price_lookup",
+      "approval_chain_lookup"
+    ],
+    "expected_risks": [
+      "AMOUNT_RISK",
+      "APPROVAL_PATH_RISK",
+      "CATEGORY_POLICY_RISK",
+      "PRICE_ANOMALY_RISK",
+      "VENDOR_QUALIFICATION_RISK"
+    ],
+    "expected_human_review": true,
+    "expected_state": "WAITING_HUMAN_APPROVAL",
+    "expected_missing_questions": [
+      "budget_category_confirmed",
+      "comparison_materials",
+      "quote_materials",
+      "specified_vendor_reason"
+    ],
+    "expected_recommendation_type": "HUMAN_REVIEW_REQUIRED"
+  }
+]

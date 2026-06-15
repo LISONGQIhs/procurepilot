@@ -1,0 +1,10 @@
+services:
+  procurepilot:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PROCUREPILOT_LLM_ENABLED: ${PROCUREPILOT_LLM_ENABLED:-false}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}

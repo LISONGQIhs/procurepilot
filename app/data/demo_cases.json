@@ -1,0 +1,26 @@
+[
+  {
+    "id": "demo-low-risk-office",
+    "name": "低风险办公用品采购",
+    "input": "行政部想采购 20 把办公椅，预算 8000 元，用于新员工工位补充。",
+    "expected_state": "COMPLETED"
+  },
+  {
+    "id": "demo-high-amount-it",
+    "name": "高金额 IT 设备采购",
+    "input": "市场部要采购 30 台 MacBook，预算 45 万，用于下季度活动运营，指定示例供应商A供货。",
+    "expected_state": "WAITING_HUMAN_APPROVAL"
+  },
+  {
+    "id": "demo-vendor-risk",
+    "name": "供应商风险采购",
+    "input": "运营部想采购一批直播设备，金额 12 万，供应商是示例供应商B。",
+    "expected_state": "WAITING_HUMAN_APPROVAL"
+  },
+  {
+    "id": "demo-missing-info",
+    "name": "信息缺失采购",
+    "input": "我们部门想买一批显示器，尽快到货。",
+    "expected_state": "NEED_INFO"
+  }
+]

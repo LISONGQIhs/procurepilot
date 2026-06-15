@@ -1,0 +1,13 @@
+[project]
+name = "procurepilot"
+version = "0.1.0"
+description = "ProcurePilot MVP: enterprise procurement compliance precheck agent"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.111,<1",
+  "uvicorn[standard]>=0.29,<1",
+  "pydantic>=2,<3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

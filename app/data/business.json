@@ -1,0 +1,118 @@
+{
+  "budgets": {
+    "行政部": {
+      "行政办公": {
+        "available_budget": 30000,
+        "owner": "行政预算负责人"
+      }
+    },
+    "市场部": {
+      "活动运营": {
+        "available_budget": 520000,
+        "owner": "市场预算负责人"
+      },
+      "IT设备": {
+        "available_budget": 300000,
+        "owner": "市场预算负责人"
+      }
+    },
+    "运营部": {
+      "运营设备": {
+        "available_budget": 180000,
+        "owner": "运营预算负责人"
+      }
+    },
+    "IT部": {
+      "IT设备": {
+        "available_budget": 650000,
+        "owner": "IT预算负责人"
+      }
+    },
+    "销售部": {
+      "客户活动": {
+        "available_budget": 90000,
+        "owner": "销售预算负责人"
+      }
+    }
+  },
+  "vendors": {
+    "示例供应商A": {
+      "is_approved": true,
+      "qualification_status": "有效",
+      "approved_categories": ["IT设备", "办公设备"],
+      "last_review_date": "2026-03-12",
+      "risk": {
+        "blacklist_hit": false,
+        "watchlist_hit": false,
+        "abnormal_records": [],
+        "complaint_count": 0,
+        "risk_level": "LOW"
+      }
+    },
+    "示例供应商B": {
+      "is_approved": true,
+      "qualification_status": "有效",
+      "approved_categories": ["IT设备", "直播设备", "运营设备"],
+      "last_review_date": "2026-01-18",
+      "risk": {
+        "blacklist_hit": false,
+        "watchlist_hit": true,
+        "abnormal_records": ["近 6 个月存在 2 次延期交付记录", "一次售后响应超 SLA"],
+        "complaint_count": 3,
+        "risk_level": "HIGH"
+      }
+    },
+    "示例供应商C": {
+      "is_approved": true,
+      "qualification_status": "有效",
+      "approved_categories": ["办公用品", "低值易耗品"],
+      "last_review_date": "2026-04-03",
+      "risk": {
+        "blacklist_hit": false,
+        "watchlist_hit": false,
+        "abnormal_records": [],
+        "complaint_count": 0,
+        "risk_level": "LOW"
+      }
+    },
+    "未准入供应商A": {
+      "is_approved": false,
+      "qualification_status": "未准入",
+      "approved_categories": [],
+      "last_review_date": null,
+      "risk": {
+        "blacklist_hit": false,
+        "watchlist_hit": false,
+        "abnormal_records": ["无准入记录"],
+        "complaint_count": 0,
+        "risk_level": "HIGH"
+      }
+    }
+  },
+  "historical_prices": {
+    "MacBook": {
+      "historical_avg_unit_price": 13800,
+      "historical_min_unit_price": 12600,
+      "historical_max_unit_price": 15800,
+      "sample_size": 12
+    },
+    "办公椅": {
+      "historical_avg_unit_price": 380,
+      "historical_min_unit_price": 320,
+      "historical_max_unit_price": 520,
+      "sample_size": 30
+    },
+    "显示器": {
+      "historical_avg_unit_price": 1250,
+      "historical_min_unit_price": 980,
+      "historical_max_unit_price": 1600,
+      "sample_size": 18
+    },
+    "直播设备": {
+      "historical_avg_unit_price": 8200,
+      "historical_min_unit_price": 6800,
+      "historical_max_unit_price": 11000,
+      "sample_size": 8
+    }
+  }
+}
